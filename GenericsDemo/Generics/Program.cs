@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Generics
 {
-    class Program
+
+    public class PrintArray<T>
     {
-        public static void  toPrint<T>(T[] inputArray)
+        public static void toPrint<T>(T[] inputArray)
         {
             foreach (T element in inputArray)
             {
@@ -16,16 +17,19 @@ namespace Generics
             }
             Console.WriteLine("---------------------------");
         }
+    }
 
+    class Program
+    {
         static void Main(string[] args)
         {
             int[] intArray = { 1, 2, 3, 4, 5 };
             double[] doubleArray = { 1.1, 2.2, 3.3, 4.4, 5.5 };
             char[] charArray = { 'H', 'E', 'L', 'L', 'O' };
 
-            toPrint(intArray);
-            toPrint(doubleArray);
-            toPrint(charArray);
+            PrintArray<int>.toPrint(intArray);
+            PrintArray<double>.toPrint(doubleArray);
+            PrintArray<char>.toPrint(charArray);
             Console.ReadKey();
         }
     }
